@@ -9,11 +9,19 @@ export async function loader({ request }: LoaderArgs) {
 
   try {
     const url = new URL("/", `http://${host}`);
+
     // if we can connect to the database and make a simple query
     // and make a HEAD request to ourselves, then we're good.
     await Promise.all([
       prisma.shortLink.count(),
-      fetch(url.toString(), { method: "HEAD" }).then((r) => {
+      fetch(url.toString(), {
+        method: "HEAD",
+        headers: {
+          Authorization: Buffer.from(
+            `${process.env.USERNAME}:${process.env.PASSWORD}`
+          ).toString("base64"),
+        },
+      }).then((r) => {
         if (!r.ok) return Promise.reject(r);
       }),
     ]);
