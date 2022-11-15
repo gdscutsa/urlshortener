@@ -1,10 +1,6 @@
-import { Form, Link, useActionData, useLoaderData } from "@remix-run/react";
-import {
-  ActionFunction,
-  json,
-  LoaderFunction,
-  redirect,
-} from "@remix-run/node";
+import type { ActionFunction, LoaderFunction } from "@remix-run/node";
+import { Form, useActionData, useLoaderData } from "@remix-run/react";
+import { json } from "@remix-run/node";
 
 import {
   createLink,

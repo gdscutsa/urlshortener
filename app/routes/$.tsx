@@ -1,4 +1,5 @@
-import { LoaderFunction, redirect } from "@remix-run/node";
+import type { LoaderFunction } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 import { getLinkByAlias } from "~/models/shortlink.server";
 
 export const loader: LoaderFunction = async ({ params }) => {
