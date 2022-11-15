@@ -10,7 +10,6 @@ export const loader: LoaderFunction = async ({ params }) => {
   }
 
   const shortLink = await getLinkByAlias(params["*"]);
-  console.log(shortLink);
 
   if (!shortLink) {
     throw new Response("Not Found", {

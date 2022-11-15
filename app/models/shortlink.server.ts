@@ -20,7 +20,7 @@ export async function createLinkWithAlias(
   alias: ShortLink["alias"],
   url: ShortLink["url"]
 ) {
-  prisma.shortLink.create({
+  return prisma.shortLink.create({
     data: {
       alias,
       url,
