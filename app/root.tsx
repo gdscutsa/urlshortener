@@ -14,11 +14,11 @@ export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
 };
 
-export const meta: MetaFunction = () => ({
-  charset: "utf-8",
+export const meta: MetaFunction = () => {
+  return [{
   title: "GDSC UTSA | URL Shortener",
-  viewport: "width=device-width,initial-scale=1",
-});
+  }]
+};
 
 export default function App() {
   return (
