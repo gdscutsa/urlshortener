@@ -1,12 +1,12 @@
 import type { LoaderFunction } from "@remix-run/node";
 import { redirect } from "@remix-run/node";
-import { useCatch } from "@remix-run/react";
+import { isRouteErrorResponse, useRouteError } from "@remix-run/react";
 import { getLinkByAlias } from "~/models/shortlink.server";
 
-export function CatchBoundary() {
-  const caught = useCatch();
+export function ErrorBoundary() {
+  const error = useRouteError();
 
-  if (caught.status === 404) {
+  if (isRouteErrorResponse(error) && error.status === 404) {
     return (
       <main className="flex h-screen justify-center bg-slate-100">
         <div className="m-auto flex max-w-xl flex-col items-center justify-center space-y-6 bg-white p-10">
